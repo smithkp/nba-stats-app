@@ -57,11 +57,10 @@ h1.Logo{
   }
 
   .card{
-    width: 30%;
+    width: 360px;
   }
 
   .card-stats{
-    text-align: center;
   }
 
 }
@@ -74,6 +73,12 @@ h1.Logo{
   .card{
     width: 50%;
   }
+
+  li{
+
+    margin-right: 10%;
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 450px){
@@ -82,11 +87,11 @@ h1.Logo{
   }
 
   .card{
-    width: 90%;
+    width: 100%;
   }
 
-  .card-stats{
-
+  li.card-stat{
+    
   }
 
 }

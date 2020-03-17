@@ -45,47 +45,67 @@ class GameCardComponent extends React.Component{
             this.setState({
                 games: info.data,
                 isLoaded:true
-            });
+            })
 
-            console.log(this.state.games[0].id);
-
-        },
-        (error) => {
-            this.setState({
-                isLoaded: true,
-                error
-            });
         }
-        );  
+        )
+        .catch(console.log)
     }
 
 
 
     render(){
-        console.log(this.state.games)
-
-        return(
+        if(this.props.isLoaded){
+            return(
             
-            <div className="card">
-                <div className="card-body">
-                    <h4 className="card-title">{}</h4>
-                    <h6 className="card-subtitle mb-4">52 - 71</h6>
-                    <h6 className="card-text">Leaders</h6>
-                    <ul className="card-stats">
-                        <li className="card-stat">
-                            <h6 className="card-text">PTS:   {} -  {}<br/></h6>
-                        </li>
-                        <li className="card-stat">
-                            <h6 className="card-text">REB:  {} -  {}<br/></h6>
-                        </li>
-                        <li className="card-stat">
-                            <h6 className="card-text">AST:   {} -  {}<br/></h6>
-                        </li>
-                    </ul>
-                    <a href="#" className="btn btn-primary">Boxscore</a>
+                <div className="card">
+                    <div className="card-body text-center">
+                        <h4 className="card-title">{this.props.awayTeam} @ {this.props.homeTeam}</h4>
+                        <h6 className="card-subtitle text-muted mb-4">{this.props.gameTime}</h6>
+                        <h3 className="card-subtitle mb-4">{this.props.awayScore} - {this.props.homeScore}</h3>                       
+                        <h6 className="card-text">Leaders</h6>
+                        <ul className="card-stats">
+                            <li className="card-stat">
+                                <h6 className="card-text">PTS:   {} -  {}<br/></h6>
+                            </li>
+                            <li className="card-stat">
+                                <h6 className="card-text">REB:  {} -  {}<br/></h6>
+                            </li>
+                            <li className="card-stat">
+                                <h6 className="card-text">AST:   {} -  {}<br/></h6>
+                            </li>
+                        </ul>
+                        <a href="#" className="btn btn-primary">Boxscore</a>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
+        else{
+            return(
+            
+                <div className="card">
+                    <div className="card-body">
+                        <h4 className="card-title">Loading...</h4>
+                        <h6 className="card-subtitle mb-4">52 - 71</h6>
+                        <h6 className="card-text">Leaders</h6>
+                        <ul className="card-stats">
+                            <li className="card-stat">
+                                <h6 className="card-text">PTS:   {} -  {}<br/></h6>
+                            </li>
+                            <li className="card-stat">
+                                <h6 className="card-text">REB:  {} -  {}<br/></h6>
+                            </li>
+                            <li className="card-stat">
+                                <h6 className="card-text">AST:   {} -  {}<br/></h6>
+                            </li>
+                        </ul>
+                        <a href="#" className="btn btn-primary">Boxscore</a>
+                    </div>
+                </div>
+            )
+        }
+
+        
     }
 }
 

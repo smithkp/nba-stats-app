@@ -1,5 +1,6 @@
 import React from 'react';
 import GameCard from './GameCardComponent';
+import GameList from './GameListComponent';
 import './App.css';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
           </li>
         </ul>
       </div>
-      <GameCard />
+      <GameList />
     </div>
   );
 }
